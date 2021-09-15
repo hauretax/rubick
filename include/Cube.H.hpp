@@ -1,6 +1,8 @@
 #ifndef CUBE_H_HPP
 #define CUBE_H_HPP
 
+#include "Cube.H.hpp"
+
 class Cube
 {
     private:
@@ -15,6 +17,9 @@ class Cube
         ~Cube();
         void Print();
         void PrintFace(int, int, int );
+        void orangeH();
+        void orangeA();
+        void noirA();
 };
 
 #endif
