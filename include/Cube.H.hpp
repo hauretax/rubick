@@ -17,9 +17,14 @@ class Cube
         ~Cube();
         void Print();
         void PrintFace(int, int, int );
-        void orangeH();
-        void orangeA();
-        void noirA();
+        void Right();
+        void Rightp();
+        void Up();
+        void Down();
+        void Left();
+        void Front();
+        void Back();
+
 };
 
 #endif
