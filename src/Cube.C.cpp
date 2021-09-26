@@ -9,31 +9,12 @@ Cube::Cube(void)
     Cube::setFace(3,'O');
     Cube::setFace(4,'V');
     Cube::setFace(5,'B');
-    tab[4][0] = 'x';
-    tab[4][2] = 'a';
-    tab[4][6] = 'g';
-    tab[4][8] = 'd';
-    tab[0][0] = 'y';
     setCanva();
 
 }
 
 Cube::~Cube(void)
 {
-
-    Cube::Print();
-        Back();
-    std::cout << std::endl;
-    Cube::Print();
-        Back();
-    std::cout << std::endl;
-    Cube::Print();
-        Back();
-    std::cout << std::endl;
-    Cube::Print();
-        Back();
-    std::cout << std::endl;
-    Cube::Print();
     return ;
 }
 
@@ -106,6 +87,7 @@ void Cube::Print(){
     Cube::PrintFace(4, 0, 3);
     Cube::PrintFace(5, 6, 3);
     Cube::showCanva();
+    std::cout << std::endl;
     return ;
 }
 
@@ -116,7 +98,7 @@ void Cube::Print(){
 a ranger  ?? 
 ****
 ****
-****
+****L
 ****/
 
 typedef enum e_couleur
