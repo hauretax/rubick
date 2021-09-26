@@ -9,7 +9,11 @@ Cube::Cube(void)
     Cube::setFace(3,'O');
     Cube::setFace(4,'V');
     Cube::setFace(5,'B');
-    tab[0][0] = 'x';
+    tab[4][0] = 'x';
+    tab[4][2] = 'a';
+    tab[4][6] = 'g';
+    tab[4][8] = 'd';
+    tab[0][0] = 'y';
     setCanva();
 
 }
@@ -24,7 +28,7 @@ Cube::~Cube(void)
         Back();
     std::cout << std::endl;
     Cube::Print();
-       Back();
+        Back();
     std::cout << std::endl;
     Cube::Print();
         Back();
@@ -171,40 +175,29 @@ void Cube::Right()
     tab[N][6] = tmp[0];
     tab[N][7] = tmp[1];
     tab[N][8] = tmp[2];
+    TurnFace(O);
 }
 
-void Cube::Rightp()
+\
+
+void Cube::TurnFace(int f)
 {
-    char tmp[3];
-    char tmpP[3];
 
-    tmp[0] = tab[B][6];
-    tmp[1] = tab[B][7];
-    tmp[2] = tab[B][8];
+    char tmp;
+    char tmp2;
 
-    tab[B][6] = tab[N][6];
-    tab[B][7] = tab[N][7];
-    tab[B][8] = tab[N][8];
+    tmp = tab[f][BM];
+    tmp2 = tab[f][BG];
 
-    tmpP[0] = tab[J][2];
-    tmpP[1] = tab[J][1];
-    tmpP[2] = tab[J][0];
+    tab[f][BG] = tab[f][BD];
+    tab[f][BM] = tab[f][MD];
+    tab[f][BD] = tab[f][HD];
+    tab[f][MD] = tab[f][HM];
+    tab[f][HD] = tab[f][HG];
+    tab[f][HM] = tab[f][MG];
+    tab[f][HG] = tmp2;
+    tab[f][MG] = tmp;
 
-    tab[J][0] = tmp[2];
-    tab[J][1] = tmp[1];
-    tab[J][2] = tmp[0];
-
-    tmp[0] = tab[V][6];
-    tmp[1] = tab[V][7];
-    tmp[2] = tab[V][8];
-
-    tab[V][6] = tmpP[0];
-    tab[V][7] = tmpP[1];
-    tab[V][8] = tmpP[2];
-
-    tab[N][6] = tmp[0];
-    tab[N][7] = tmp[1];
-    tab[N][8] = tmp[2];
 }
 
 void Cube::Up()
@@ -238,6 +231,10 @@ void Cube::Up()
     tab[O][BG] = tmp[0];
     tab[O][MG] = tmp[1];
     tab[O][HG] = tmp[2];
+
+
+    TurnFace(N);
+
 }
 
 void Cube::Down()
@@ -272,6 +269,8 @@ void Cube::Down()
     tab[B][BD] = tmp[0];
     tab[B][BM] = tmp[1];
     tab[B][BG] = tmp[2];
+
+    TurnFace(J);
 }
 
 void Cube::Left()
@@ -306,6 +305,9 @@ void Cube::Left()
     tab[B][HG] = tmp[0];
     tab[B][MG] = tmp[1];
     tab[B][BG] = tmp[2];
+
+    for(int i = 0; i < 3; i++)
+        TurnFace(R);
 }
 
 void Cube::Front()
@@ -340,6 +342,8 @@ void Cube::Front()
     tab[R][BG] = tmp[0];
     tab[R][BM] = tmp[1];
     tab[R][BD] = tmp[2];
+
+    TurnFace(B);
 }
 
 
@@ -375,4 +379,7 @@ void Cube::Back()
     tab[R][HG] = tmp[0];
     tab[R][HM] = tmp[1];
     tab[R][HD] = tmp[2];
+
+    for(int i = 0; i < 3; i++)
+        TurnFace(V);
 }

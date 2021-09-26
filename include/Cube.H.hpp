@@ -11,6 +11,7 @@ class Cube
         void setFace(int, char);
         void setCanva();
         void showCanva();
+        void TurnFace(int);
     
     public:
         Cube();
@@ -18,7 +19,6 @@ class Cube
         void Print();
         void PrintFace(int, int, int );
         void Right();
-        void Rightp();
         void Up();
         void Down();
         void Left();
